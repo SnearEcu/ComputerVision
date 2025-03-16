@@ -1,2 +1,0 @@
-# ComputerVision
-Computer vision Azure
