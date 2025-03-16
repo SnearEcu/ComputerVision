@@ -36,5 +36,42 @@
         </pre>
     </section>
 
+    <section>
+        <h2>Upload and Analyze Image</h2>
+        <form id="imageForm" enctype="multipart/form-data">
+            <input type="file" id="imageInput" name="image" accept="image/*" required>
+            <button type="submit">Upload and Analyze</button>
+        </form>
+        <div id="imageContainer"></div>
+        <label id="descriptionLabel"></label>
+    </section>
+
+    <script>
+        document.getElementById('imageForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+            formData.append('image', file);
+
+            try {
+                const response = await fetch('/api/v1/analysis/', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const data = await response.json();
+                if (data.error) {
+                    document.getElementById('descriptionLabel').textContent = `Error: ${data.error}`;
+                } else {
+                    const imageUrl = URL.createObjectURL(file);
+                    document.getElementById('imageContainer').innerHTML = `<img src="${imageUrl}" alt="Uploaded Image" style="max-width: 100%;">`;
+                    document.getElementById('descriptionLabel').textContent = `Description: ${data.description}`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('descriptionLabel').textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
 </body>
 </html>

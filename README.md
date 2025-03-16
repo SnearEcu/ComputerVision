@@ -1,3 +1,6 @@
+# Tarea 1
+Bryan Ortega
+Computer Vision usando API de Azure
 # Lab 1: Calling, Building, and Securing APIs
 In homework I1 you will use third-party machine learning APIs and in the group project you will develop your own APIs. In this lab, you will experiment with both, connecting to the Azure Vision API and providing your own API endpoint. 
 To receive credit for this lab, show your work to the TA during recitation.
