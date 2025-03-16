@@ -1,8 +1,8 @@
 import requests
 import os
 
-endpoint = "https://maestriayachay.cognitiveservices.azure.com/"
-key = "2F54M87YQt6vNtfBKP1EUTIqByV71csVGSlb2mVQ37SZEapPwOu9JQQJ99BCACYeBjFXJ3w3AAAFACOG6XhS"
+endpoint = "Endpoint de Azure"
+key = "Clave de Azure"
 analyze_url = f"{endpoint}/vision/v3.1/analyze?visualFeatures=Description"
 
 headers = {
